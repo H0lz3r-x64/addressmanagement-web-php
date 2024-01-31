@@ -1,0 +1,3 @@
+[submodule "app/core"]
+	path = app/core
+	url = https://github.com/H0lz3r-x64/php-mvc-core

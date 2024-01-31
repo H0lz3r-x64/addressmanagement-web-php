@@ -1,0 +1,24 @@
+# ATTENTION: directive succession is very important!
+
+# setup
+RewriteEngine On
+RewriteBase /commisioningdevopswebinterface-be/
+
+# If the request is for the base URL, redirect to public/index.php
+RewriteRule ^$ public/index.php [L]
+
+# Remove public from the URL
+RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
+RewriteRule ^ %1 [L,NE,R=302]
+
+# Rewrite css, js and img files to their respective folders (might not working and unnecessary)
+RewriteRule ^css/(.+\.css)$ public/css/$1 [L,NC]
+RewriteRule ^js/(.+\.js)$ public/js/$1 [L,NC]
+RewriteRule ^img/(.+\.(png|jpg|gif|svg))$ public/img/$1 [L,NC]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Pass everything else outside public to public/index.php
+RewriteRule ^(.*)$ public/index.php?url=$1 [L,QSA]
+ 

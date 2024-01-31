@@ -1,0 +1,24 @@
+{
+    "name": "knapp/addressmanagement-web-php",
+    "type": "project",
+    "description": "PHP Web Application to manage adresses. Mostly a proof of concept for the apprentice training department.",
+    "homepage": "https://github.com/H0lz3r-x64/Addressmanagement-Web-PHP",
+    "config": {
+        "optimize-autoloader": true,
+        "prepend-autoloader": false,
+        "platform": {
+            "php": "8.1.6"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Models\\": "app/models/",
+            "Controllers\\": "app/controllers/"
+        }
+    },
+    "require": {
+        "illuminate/database": "^10.43",
+        "phpoption/phpoption": "^1.9",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
