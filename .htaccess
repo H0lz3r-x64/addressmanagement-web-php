@@ -2,7 +2,7 @@
 
 # setup
 RewriteEngine On
-RewriteBase /commisioningdevopswebinterface-be/
+RewriteBase /addressmgmt-web-php/
 
 # If the request is for the base URL, redirect to public/index.php
 RewriteRule ^$ public/index.php [L]

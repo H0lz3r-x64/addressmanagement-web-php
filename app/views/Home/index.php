@@ -6,20 +6,10 @@ require APP_ROOT_PATH . "/views/Base/BaseViewTemplate.php";
 <link rel="stylesheet" href="css/dashboardStyle.css" />
 
 <div id="app">
-    <h1>All Dashboards</h1>
 
-    <i>ux to select dashboard is subject to change</i>
 
-    <div class="query-container">
-        <?php foreach ($data['dashboards'] as $dashboard): ?>
-            <a href="<?= 'dashboards/' . $dashboard->name ?>" class="query-box">
-                <?= $dashboard->name; ?>
-            </a>
-        <?php endforeach; ?>
-        <div class="query-box add-query">
-            +
-        </div>
-    </div>
+    <!-- put code here! -->
+
 </div>
 
 

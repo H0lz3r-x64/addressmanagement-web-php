@@ -8,7 +8,7 @@ echo <<<EOF
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/commisioningdevopswebinterface-be/">
+    <base href="/addressmgmt-web-php/">
 
     <!-- jquery -->
     <link href="https://cdn.jsdelivr.net/npm/jquery-resizable-columns@0.2.3/dist/jquery.resizableColumns.min.css"

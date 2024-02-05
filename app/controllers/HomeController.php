@@ -14,16 +14,12 @@ class HomeController extends Controller
     function index($params = [])
     {
         global $api_service;
-        $dashboards = Models\DashboardModel::all();
 
 
         $data = [
-            'dashboards' => $dashboards,
         ];
 
-        $this->loadView('Home/Home', $data);  # path to view from views directory root
+        $this->loadView('Home.index', $data);  # path to view from views directory root
 
     }
 }
-
-?>
