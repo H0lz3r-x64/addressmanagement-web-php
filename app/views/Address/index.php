@@ -138,6 +138,7 @@ require APP_ROOT_PATH . "/views/Base/BaseViewTemplate.php";
             }
         });
 
+
         $(document).on('click', '.dropdown-toggle', function (e) {
             if ($(e.target).parents('.fixed-table-pagination').length) {
                 return;
@@ -171,7 +172,7 @@ require APP_ROOT_PATH . "/views/Base/BaseViewTemplate.php";
         });
 
 
-        $(document).on('click', '.form-control', function () {
+        $(document).on('blur', '.form-control', function () {
             let id = $(this).closest('tr').data('id');
             let field = $(this).attr('name');
             let value = $(this).val();

@@ -16,7 +16,7 @@ class AddressController extends Controller
     {
         // Get the ID, field, and value from the request
         if (!isset($_POST['id']) || !isset($_POST['field']) || !isset($_POST['value'])) {
-            echo 'error';
+            http_response_code(400);
             return;
         }
         $id = $_POST['id'];
@@ -92,6 +92,11 @@ class AddressController extends Controller
 
         // Check if the address was found
         if ($address) {
+            // delete the profile picture from img folder
+            if ($address->profile_picture) {
+                unlink($address->profile_picture);
+            }
+
             // Return a success response
             $address->delete();
             echo json_encode(['status' => 'success', 'message' => "Address with id {$id} deleted successfully."]);
