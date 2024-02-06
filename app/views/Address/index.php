@@ -51,7 +51,7 @@ require APP_ROOT_PATH . "/views/Base/BaseViewTemplate.php";
             $('#profileImage').attr('src', ""); // or set to a default image
             $('#fileInput').val('');
             actionTaken = true;
-            newFile = null;
+            newFile = "";
             $('#applyChanges').prop('disabled', false);
         });
 
