@@ -3,7 +3,6 @@ namespace Controllers;
 
 use Backend\Core\Controller;
 use Models\Address;
-use Illuminate\Http\Request;
 
 class AddressController extends Controller
 {
@@ -37,6 +36,32 @@ class AddressController extends Controller
         echo 'success';
     }
 
+    public function storeProfilePicture()
+    {
+        // Get the ID from the request
+        if (!isset($_POST['id']) || !isset($_FILES['profile_picture'])) {
+            http_response_code(400);
+            return;
+        }
+        $id = $_POST['id'];
+        $profile_picture = $_FILES['profile_picture'];
+
+        // Find the address
+        $address = Address::find($id);
+
+        // store the profile picture in img folder
+        $target_dir = "img/";
+        $target_file = $target_dir . basename($profile_picture["name"]);
+        move_uploaded_file($profile_picture["tmp_name"], $target_file);
+
+        // Upload the profile picture
+        $address->profile_picture = $target_file;
+
+        // Save the address
+        $address->save();
+        echo 'success';
+    }
+
     public function create()
     {
         header('Content-Type: application/json');
@@ -57,6 +82,10 @@ class AddressController extends Controller
     public function delete()
     {
         header('Content-Type: application/json');
+        if (!isset($_POST['id'])) {
+            echo 'error';
+            return;
+        }
         $id = $_POST['id'];
         // Find the address
         $address = Address::find($id);
